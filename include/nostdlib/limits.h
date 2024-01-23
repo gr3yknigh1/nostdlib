@@ -1,0 +1,24 @@
+#ifndef NOSTDLIB_LIMITS_H_
+#define NOSTDLIB_LIMITS_H_
+
+#define NOC_CHAR_BITS 8
+#define NOC_BYTE_SIZE 1
+
+#define NOC_I8_BYTES 1
+#define NOC_I16_BYTES 2
+#define NOC_I32_BYTES 4
+#define NOC_I64_BYTES 8
+#define NOC_SSIZE_BYTES 8
+
+#define NOC_U8_BYTES 1
+#define NOC_U16_BYTES 2
+#define NOC_U32_BYTES 4
+#define NOC_U64_BYTES 8
+#define NOC_USIZE_BYTES 8
+
+#define NOC_F32_BYTES 4
+#define NOC_F64_BYTES 8
+
+#define NOC_WORD_SIZE 4
+
+#endif // NOSTDLIB_LIMITS_H_

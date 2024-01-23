@@ -1,0 +1,27 @@
+# Build Artifacts
+/**/*.o
+*.a
+
+compile_commands.json
+
+.cache/
+
+# Installing
+.install
+
+# GNU Coverage
+
+*.gcov
+*.gcda
+*.gcno
+
+## LCOV report
+
+*.lcov_report
+
+## HTML Gen output
+out/
+
+# Editors
+.idea/
+.vscode/
