@@ -122,11 +122,11 @@ LIBNOC_SRCS   := \
     $(LIBNOC_DIR)/string.c \
     $(LIBNOC_DIR)/memory.c
 
-LIBNOC_HDRS  := \
+LIBNOC_HDRS := \
 	$(wildcard $(LIBNOC_INC)/*.h) \
 	$(wildcard $(LIBNOC_INC)/**/*.h)
 
-LIBNOC_OBJS  := $(patsubst $(LIBNOC_DIR)/%.c, $(LIBNOC_DIR)/%.o, $(LIBNOC_SRCS))
+LIBNOC_OBJS := $(patsubst $(LIBNOC_DIR)/%.c, $(LIBNOC_DIR)/%.o, $(LIBNOC_SRCS))
 
 
 $(LIBNOC_BIN): $(LIBNOC_OBJS)
