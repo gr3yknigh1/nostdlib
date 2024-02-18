@@ -1,3 +1,5 @@
 CompileFlags:
   Add: [-std=c2x, -Wall, -Wextra, -pedantic]
-  Compiler: gcc
+  Compiler: clang
+Diagnostics:
+  UnusedIncludes: None

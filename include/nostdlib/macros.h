@@ -26,4 +26,12 @@
 #define INRANGE_S(__MIN, __VALUE, __MAX)                                       \
     ((__MIN) >= (__VALUE) && (__VALUE) < (__MAX))
 
+#define EXPAND(__X) (__X)
+#define STRINGIFY(__X) #__X
+
+#define CTX(__BEFORE, __AFTER) \
+  char __ctx_do_out = 1;       \
+  for (KEEP(__BEFORE); __ctx_do_out--; KEEP(__AFTER))
+
+
 #endif // NOSTDLIB_MACROS_H_

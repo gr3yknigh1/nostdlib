@@ -71,7 +71,7 @@ default: all
 
 # ============== [ COMPILATION ] ==============
 #
-CC       := gcc
+CC       := clang
 CFLAGS   := -Wall -Wextra -pedantic -std=c2x
 INCFLAGS := -I $(SRCROOT)/include
 LDFLAGS  := -lm
@@ -98,7 +98,8 @@ ifeq ($(WITH_COVERAGE), yes)
 endif
 
 
-# include $(SRCROOT)/make/os.mk
+include $(SRCROOT)/make/detect-os.mk
+include $(SRCROOT)/make/platform.mk
 include $(SRCROOT)/make/tools.mk
 
 
@@ -113,9 +114,12 @@ LIBNOC_SRCS   := \
     $(LIBNOC_DIR)/fmt/sprintf/impls.c \
     $(LIBNOC_DIR)/fmt/parser.c \
     $(LIBNOC_DIR)/fmt/helpers.c \
+    $(LIBNOC_DIR)/math/mod.c \
+    $(LIBNOC_DIR)/math/round.c \
     $(LIBNOC_DIR)/io.c \
     $(LIBNOC_DIR)/from_str.c \
     $(LIBNOC_DIR)/to_str.c \
+    $(LIBNOC_DIR)/char.c \
     $(LIBNOC_DIR)/abs.c \
     $(LIBNOC_DIR)/countdigits.c \
     $(LIBNOC_DIR)/flt_charcount.c \
