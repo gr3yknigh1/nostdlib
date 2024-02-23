@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "s21_string.h"
+// TODO(gr3yknigh1): Fix naming.
+
+#include "nostdlib/string.h"
 
 // NOTE(gr3yknigh1): Suppress cppcheck warnings
 static int (*_original_function)(char *restrict, const char *, ...) = sprintf;
@@ -17,7 +19,7 @@ static int (*_original_function)(char *restrict, const char *, ...) = sprintf;
         char *__BUFFER_0 = calloc((__BUFFER_SIZE), sizeof(char));              \
         char *__BUFFER_1 = calloc((__BUFFER_SIZE), sizeof(char));              \
                                                                                \
-        s21_sprintf(__BUFFER_0, __VA_ARGS__);                                  \
+        noc_string_format(__BUFFER_0, __VA_ARGS__);                                  \
         _original_function(__BUFFER_1, __VA_ARGS__);                           \
                                                                                \
         bool __IS_EQ = strcmp(__BUFFER_0, __BUFFER_1) == 0;                    \
