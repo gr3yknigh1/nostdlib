@@ -7,21 +7,21 @@
 #include "nostdlib/string.h"
 #include "nostdlib/types.h"
 
-typedef struct {
-    int value;
-} noc_fileno;
+typedef int filefd;
 
-NOC_DEF noc_rc noc_write(noc_fileno fd, const byte *data, usize count,
-                         usize *written);
+extern const filefd stdfd_in;
+extern const filefd stdfd_out;
+extern const filefd stdfd_err;
 
-NOC_INLINE noc_rc
-noc_write_buf(noc_fileno fd, const noc_buf *buf, usize *written) {
-    return noc_write(fd, buf->data, buf->size, written);
-}
+NOC_NODISCARD NOC_DEF noc_rc noc_write(filefd fd, const byte *data, usize count,
+                                       usize *written);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(filefd fd, const noc_buf *buf,
+                                           usize *written);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_cstr(filefd fd, const char *s,
+                                            usize *written);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_char(filefd fd, char c);
 
-NOC_INLINE noc_rc
-noc_write_cstr(noc_fileno fd, const char *s, usize *written) {
-    return noc_write(fd, (const byte *)s, noc_string_len(s), written);
-}
+NOC_DEF noc_rc noc_println(const char *s);
+NOC_DEF noc_rc noc_printchar(char c);
 
 #endif // NOSTDLIB_IO_H_
