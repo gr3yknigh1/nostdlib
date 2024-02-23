@@ -69,8 +69,9 @@ _fmt_parse_i32_while_digit(const char *s, i32 *out_num) {
     noc_memory_copy(numstr, s, numlen);
 
     if (out_num != nullptr) {
-        // TODO: Replace in the future with generic version
-        *out_num = noc_i32_from_str(numstr);
+        // TODO: Replace in the future with generic version.
+        // TODO: Handle error from convertion.
+        noc_i32_from_str(numstr, out_num);
     }
     return numlen;
 }
