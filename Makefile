@@ -114,8 +114,6 @@ LIBNOC_SRCS   := \
     $(LIBNOC_DIR)/fmt/sprintf/impls.c \
     $(LIBNOC_DIR)/fmt/parser.c \
     $(LIBNOC_DIR)/fmt/helpers.c \
-    $(LIBNOC_DIR)/math/mod.c \
-    $(LIBNOC_DIR)/math/round.c \
     $(LIBNOC_DIR)/io.c \
     $(LIBNOC_DIR)/from_str.c \
     $(LIBNOC_DIR)/to_str.c \
