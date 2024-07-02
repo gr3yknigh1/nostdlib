@@ -1,6 +1,7 @@
 # Build Artifacts
 /**/*.o
 *.a
+build/
 
 compile_commands.json
 
