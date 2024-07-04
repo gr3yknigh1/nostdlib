@@ -46,7 +46,7 @@ add_library(
 )
 
 target_compile_features(
-    noc PRIVATE c_std_23
+    noc PRIVATE c_std_11
 )
 
 target_include_directories(

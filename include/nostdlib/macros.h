@@ -1,6 +1,26 @@
 #ifndef NOSTDLIB_MACROS_H_
 #define NOSTDLIB_MACROS_H_
 
+#if !defined(__cplusplus)
+
+# if !defined(nullptr)
+#  define nullptr ((void *)0)
+# endif
+
+# if !defined(true)
+#  define true 1
+# endif
+
+# if !defined(false)
+#  define false 0
+# endif
+
+#endif
+
+#if !defined(static_assert)
+#define static_assert _Static_assert
+#endif
+
 #ifndef NOC_DEF
 #define NOC_DEF extern
 #endif // NOC_DEF
