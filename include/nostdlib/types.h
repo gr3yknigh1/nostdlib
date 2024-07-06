@@ -12,9 +12,9 @@ typedef unsigned char byte;
 
 static_assert(sizeof(byte) == 1, "");
 
-typedef signed char char8;
-typedef signed short char16;
-typedef signed int char32;
+typedef char char8;
+typedef short char16;
+typedef int char32;
 
 static_assert(sizeof(char8) == CHAR8_BYTES, "");
 static_assert(sizeof(char16) == CHAR16_BYTES, "");
