@@ -60,7 +60,8 @@ target_include_directories(
     noc PRIVATE ${PROJECT_SOURCE_DIR}/include
 )
 
-# set_target_properties(nostdlib PROPERTIES PUBLIC_HEADER ${NOC_HEADER_FILES})
+# TODO(i.akkuzin): Remove when we finally implement math library by our self [2024/07/06]
+target_link_libraries(noc PRIVATE m)
 
 install(TARGETS noc PUBLIC_HEADER)
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
