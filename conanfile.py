@@ -1,6 +1,8 @@
-from conan import ConanFile
-from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
+from os.path import join
 
+from conan import ConanFile
+from conan.tools.files import copy
+from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
 
 class NoStdLibRecipe(ConanFile):
     name = "nostdlib"
@@ -44,4 +46,6 @@ class NoStdLibRecipe(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["nostdlib", "noc"]
+        self.cpp_info.includedirs = ["include"]
+        self.cpp_info.libdirs = ["lib"]
+        self.cpp_info.libs = ["noc"]

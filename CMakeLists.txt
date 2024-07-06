@@ -1,52 +1,55 @@
 cmake_minimum_required(VERSION 3.20)
 project(nostdlib LANGUAGES C)
 
-set(PROJECT_HEADERS
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/rc.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/flt_charcount.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/to_str.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/from_str.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/abs.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/countdigits.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/memory.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/version.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/sys/posix.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/limits.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/platform.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/types.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/bits.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/_internal/fmt/sprintf/impls.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/_internal/fmt/helpers.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/_internal/fmt/parser.h
-    # ${PROJECT_SOURCE_DIR}/include/nostdlib/_internal/fmt/sscanf.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/string.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/char.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/macros.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/math/round.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/math/mod.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/io.h
-    ${PROJECT_SOURCE_DIR}/include/nostdlib/buf.h
+set(NOC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+set(NOC_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
+
+set(
+    NOC_HEADER_FILES
+    ${NOC_INCLUDE_DIR}/nostdlib/rc.h
+    ${NOC_INCLUDE_DIR}/nostdlib/numeric/flt_charcount.h
+    ${NOC_INCLUDE_DIR}/nostdlib/numeric/to_str.h
+    ${NOC_INCLUDE_DIR}/nostdlib/numeric/from_str.h
+    ${NOC_INCLUDE_DIR}/nostdlib/numeric/abs.h
+    ${NOC_INCLUDE_DIR}/nostdlib/numeric/countdigits.h
+    ${NOC_INCLUDE_DIR}/nostdlib/memory.h
+    ${NOC_INCLUDE_DIR}/nostdlib/version.h
+    ${NOC_INCLUDE_DIR}/nostdlib/sys/posix.h
+    ${NOC_INCLUDE_DIR}/nostdlib/limits.h
+    ${NOC_INCLUDE_DIR}/nostdlib/platform.h
+    ${NOC_INCLUDE_DIR}/nostdlib/types.h
+    ${NOC_INCLUDE_DIR}/nostdlib/bits.h
+    ${NOC_INCLUDE_DIR}/nostdlib/_internal/fmt/sprintf/impls.h
+    ${NOC_INCLUDE_DIR}/nostdlib/_internal/fmt/helpers.h
+    ${NOC_INCLUDE_DIR}/nostdlib/_internal/fmt/parser.h
+    ${NOC_INCLUDE_DIR}/nostdlib/string.h
+    ${NOC_INCLUDE_DIR}/nostdlib/char.h
+    ${NOC_INCLUDE_DIR}/nostdlib/macros.h
+    ${NOC_INCLUDE_DIR}/nostdlib/math/round.h
+    ${NOC_INCLUDE_DIR}/nostdlib/math/mod.h
+    ${NOC_INCLUDE_DIR}/nostdlib/io.h
+    ${NOC_INCLUDE_DIR}/nostdlib/buf.h
+
+    # ${NOC_HEADER_FILES}/nostdlib/_internal/fmt/sscanf.h
 )
 
-add_library(
-    noc
+add_library(noc
+    ${NOC_SOURCES_DIR}/abs.c
+    ${NOC_SOURCES_DIR}/countdigits.c
+    ${NOC_SOURCES_DIR}/from_str.c
+    ${NOC_SOURCES_DIR}/char.c
+    ${NOC_SOURCES_DIR}/io.c
+    ${NOC_SOURCES_DIR}/memory.c
+    ${NOC_SOURCES_DIR}/flt_charcount.c
+    ${NOC_SOURCES_DIR}/fmt/sprintf/impls.c
+    ${NOC_SOURCES_DIR}/fmt/helpers.c
+    ${NOC_SOURCES_DIR}/fmt/parser.c
+    ${NOC_SOURCES_DIR}/string.c
+    ${NOC_SOURCES_DIR}/to_str.c
 
-    ${PROJECT_SOURCE_DIR}/src/abs.c
-    ${PROJECT_SOURCE_DIR}/src/countdigits.c
-    ${PROJECT_SOURCE_DIR}/src/from_str.c
-    ${PROJECT_SOURCE_DIR}/src/char.c
-    ${PROJECT_SOURCE_DIR}/src/io.c
-    ${PROJECT_SOURCE_DIR}/src/memory.c
-    ${PROJECT_SOURCE_DIR}/src/flt_charcount.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/sprintf/impls.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/helpers.c
-    # ${PROJECT_SOURCE_DIR}/src/fmt/sscanf.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/parser.c
-    ${PROJECT_SOURCE_DIR}/src/string.c
-    ${PROJECT_SOURCE_DIR}/src/to_str.c
+    # ${NOC_SOURCES_DIR}/fmt/sscanf.c
 
-    # Headers
-    ${PROJECT_HEADERS}
+    ${NOC_HEADER_FILES}
 )
 
 target_compile_features(
@@ -57,8 +60,7 @@ target_include_directories(
     noc PRIVATE ${PROJECT_SOURCE_DIR}/include
 )
 
-set_target_properties(noc PROPERTIES
-	PUBLIC_HEADER ${PROJECT_HEADERS}
-)
+# set_target_properties(nostdlib PROPERTIES PUBLIC_HEADER ${NOC_HEADER_FILES})
 
-install(TARGETS noc)
+install(TARGETS noc PUBLIC_HEADER)
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
