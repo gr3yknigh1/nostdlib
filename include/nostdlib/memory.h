@@ -1,4 +1,4 @@
-#ifndef NOSTDLIB_MEMORY_H_
+#if !defined(NOSTDLIB_MEMORY_H_)
 #define NOSTDLIB_MEMORY_H_
 
 #include "nostdlib/macros.h"
