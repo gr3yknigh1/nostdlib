@@ -1,8 +1,11 @@
-#ifndef NOSTDLIB_LIMITS_H_
+#if !defined(NOSTDLIB_LIMITS_H_)
 #define NOSTDLIB_LIMITS_H_
 
 #define CHAR_BITS 8
-#define BYTE_SIZE 1
+
+#define CHAR8_BYTES 1
+#define CHAR16_BYTES 2
+#define CHAR32_BYTES 4
 
 #define I8_BYTES 1
 #define I16_BYTES 2

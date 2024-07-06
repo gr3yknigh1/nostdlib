@@ -1,8 +1,9 @@
 #include "nostdlib/io.h"
 #include "nostdlib/macros.h"
 #include "nostdlib/platform.h"
+#include "nostdlib/string.h"
 
-#ifdef NOC_PLATFORM_LINUX
+#if defined(NOC_PLATFORM_LINUX)
 #include <unistd.h>
 
 #include "nostdlib/sys/posix.h"
@@ -29,7 +30,7 @@ noc_write(filefd fd, const byte *data, usize count, usize *written) {
 }
 
 NOC_NODISCARD NOC_DEF noc_rc
-noc_write_buf(filefd fd, const noc_buf *buf, usize *written) {
+noc_write_buf(filefd fd, const noc_buf_t *buf, usize *written) {
     return noc_write(fd, buf->data, buf->size, written);
 }
 

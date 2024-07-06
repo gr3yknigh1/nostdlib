@@ -4,26 +4,26 @@
 #include "nostdlib/macros.h"
 #include "nostdlib/types.h"
 
-NOC_DEF usize noc_string_format(char *buffer, const char *format, ...);
+NOC_DEF usize noc_string_format(char8 *buffer, const char8 *format, ...);
 
 /*
  * Copies string from `src` to `dst` until '\0' in `src`.
  *
  * :returns: Bytes written in `dst`
  * */
-NOC_DEF usize noc_string_copy(char *restrict dst, const char *src);
+NOC_DEF usize noc_string_copy(char8 *restrict dst, const char8 *src);
 
-NOC_DEF usize noc_string_len(const char *s);
+NOC_DEF usize noc_string_len(const char8 *s);
 
-NOC_DEF bool noc_string_is_eq(const char *a, const char *b);
+NOC_DEF bool noc_string_is_eq(const char8 *a, const char8 *b);
 
 /*
  * TODO: Insert allocator
  * */
-NOC_DEF void *noc_string_insert(const char *src, const char *str,
+NOC_DEF void *noc_string_insert(const char8 *src, const char8 *str,
                                 usize start_index);
 
-NOC_DEF void noc_string_to_upper(char *s);
-NOC_DEF void noc_string_to_lower(char *s);
+NOC_DEF void noc_string_to_upper(char8 *s);
+NOC_DEF void noc_string_to_lower(char8 *s);
 
 #endif // NOSTDLIB_STRING_H_

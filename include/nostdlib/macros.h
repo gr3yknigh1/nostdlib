@@ -1,6 +1,10 @@
 #ifndef NOSTDLIB_MACROS_H_
 #define NOSTDLIB_MACROS_H_
 
+#if !defined(NULL)
+# define NULL ((void *)0)
+#endif
+
 #if !defined(__cplusplus)
 
 # if !defined(nullptr)

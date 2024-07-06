@@ -10,6 +10,16 @@ typedef _Bool bool;
 
 typedef unsigned char byte;
 
+static_assert(sizeof(byte) == 1, "");
+
+typedef char char8;
+typedef short char16;
+typedef int char32;
+
+static_assert(sizeof(char8) == CHAR8_BYTES, "");
+static_assert(sizeof(char16) == CHAR16_BYTES, "");
+static_assert(sizeof(char32) == CHAR32_BYTES, "");
+
 typedef signed char i8;
 typedef signed short i16;
 typedef signed int i32;

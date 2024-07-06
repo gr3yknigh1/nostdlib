@@ -15,7 +15,7 @@ static void insert_and_shift(char *str, const char *src, long src_index,
                              long str_index);
 
 NOC_DEF usize
-noc_string_format(char *buffer, const char *format, ...) {
+noc_string_format(char8 *buffer, const char8 *format, ...) {
     const char *format_read_ptr = format;
     char *buffer_write_ptr = buffer;
 
@@ -83,7 +83,7 @@ noc_string_format(char *buffer, const char *format, ...) {
 }
 
 NOC_DEF usize
-noc_string_copy(char *restrict dst, const char *src) {
+noc_string_copy(char8 *restrict dst, const char8 *src) {
     char *dst_write_ptr = dst;
     while (*src != '\0') {
         *dst_write_ptr++ = *src++;
@@ -92,7 +92,7 @@ noc_string_copy(char *restrict dst, const char *src) {
 }
 
 NOC_DEF usize
-noc_string_len(const char *s) {
+noc_string_len(const char8 *s) {
     usize len = 0;
     while (*s++ != '\0') {
         ++len;
@@ -101,14 +101,14 @@ noc_string_len(const char *s) {
 }
 
 NOC_DEF bool
-noc_string_is_eq(const char *a, const char *b) {
+noc_string_is_eq(const char8 *a, const char8 *b) {
     while (*a++ != '\0' && *b++ != '\0')
         ;
     return *a == '\0' && *b == '\0';
 }
 
 NOC_DEF void *
-noc_string_insert(const char *dst, const char *src, usize at) {
+noc_string_insert(const char8 *dst, const char8 *src, usize at) {
 
     if (dst == nullptr || src == nullptr) {
         return nullptr;
@@ -139,7 +139,7 @@ noc_string_insert(const char *dst, const char *src, usize at) {
 }
 
 NOC_DEF void
-noc_string_to_upper(char *s) {
+noc_string_to_upper(char8 *s) {
     while (*s++ != '\0') {
         if (noc_is_lower(*s)) {
             *s += 'A' - 'a';
@@ -148,7 +148,7 @@ noc_string_to_upper(char *s) {
 }
 
 NOC_DEF void
-noc_string_to_lower(char *s) {
+noc_string_to_lower(char8 *s) {
     while (*s++ != '\0') {
         if (noc_is_upper(*s)) {
             *s -= 'A' - 'a';

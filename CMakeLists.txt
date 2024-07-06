@@ -35,6 +35,7 @@ set(
 
 add_library(noc
     ${NOC_SOURCES_DIR}/abs.c
+    ${NOC_SOURCES_DIR}/buf.c
     ${NOC_SOURCES_DIR}/countdigits.c
     ${NOC_SOURCES_DIR}/from_str.c
     ${NOC_SOURCES_DIR}/char.c
