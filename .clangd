@@ -1,5 +1,0 @@
-CompileFlags:
-  Add: [-std=c2x, -Wall, -Wextra, -pedantic]
-  Compiler: clang
-Diagnostics:
-  UnusedIncludes: None

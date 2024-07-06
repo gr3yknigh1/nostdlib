@@ -1,27 +1,21 @@
-# Build Artifacts
-/**/*.o
-*.a
+# Buildsystem
 
+## Artefacts
+[Bb]uild/
+*.exe
+*.obj
+
+## CMake
+/CMakeUserPresets.json
+
+# Editors & tools
+
+# Clangd
+/.cache/
 compile_commands.json
 
-.cache/
+## VS IDE
+.vs/
 
-# Installing
-.install
-
-# GNU Coverage
-
-*.gcov
-*.gcda
-*.gcno
-
-## LCOV report
-
-*.lcov_report
-
-## HTML Gen output
-out/
-
-# Editors
-.idea/
-.vscode/
+## Sublime text 3
+*.sublime*

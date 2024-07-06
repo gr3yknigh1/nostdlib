@@ -1,6 +1,7 @@
 #ifndef NOSTDLIB_CHAR_H_
 #define NOSTDLIB_CHAR_H_
 
+#include "nostdlib/types.h"
 #include "nostdlib/macros.h"
 
 NOC_NODISCARD NOC_DEF bool noc_is_digit(char c);
