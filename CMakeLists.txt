@@ -1,24 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(nostdlib LANGUAGES C)
 
-add_library(
-    noc
-
-    ${PROJECT_SOURCE_DIR}/src/abs.c
-    ${PROJECT_SOURCE_DIR}/src/countdigits.c
-    ${PROJECT_SOURCE_DIR}/src/from_str.c
-    ${PROJECT_SOURCE_DIR}/src/char.c
-    ${PROJECT_SOURCE_DIR}/src/io.c
-    ${PROJECT_SOURCE_DIR}/src/memory.c
-    ${PROJECT_SOURCE_DIR}/src/flt_charcount.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/sprintf/impls.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/helpers.c
-    # ${PROJECT_SOURCE_DIR}/src/fmt/sscanf.c
-    ${PROJECT_SOURCE_DIR}/src/fmt/parser.c
-    ${PROJECT_SOURCE_DIR}/src/string.c
-    ${PROJECT_SOURCE_DIR}/src/to_str.c
-
-    # Headers
+set(PROJECT_HEADERS
     ${PROJECT_SOURCE_DIR}/include/nostdlib/rc.h
     ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/flt_charcount.h
     ${PROJECT_SOURCE_DIR}/include/nostdlib/numeric/to_str.h
@@ -45,6 +28,27 @@ add_library(
     ${PROJECT_SOURCE_DIR}/include/nostdlib/buf.h
 )
 
+add_library(
+    noc
+
+    ${PROJECT_SOURCE_DIR}/src/abs.c
+    ${PROJECT_SOURCE_DIR}/src/countdigits.c
+    ${PROJECT_SOURCE_DIR}/src/from_str.c
+    ${PROJECT_SOURCE_DIR}/src/char.c
+    ${PROJECT_SOURCE_DIR}/src/io.c
+    ${PROJECT_SOURCE_DIR}/src/memory.c
+    ${PROJECT_SOURCE_DIR}/src/flt_charcount.c
+    ${PROJECT_SOURCE_DIR}/src/fmt/sprintf/impls.c
+    ${PROJECT_SOURCE_DIR}/src/fmt/helpers.c
+    # ${PROJECT_SOURCE_DIR}/src/fmt/sscanf.c
+    ${PROJECT_SOURCE_DIR}/src/fmt/parser.c
+    ${PROJECT_SOURCE_DIR}/src/string.c
+    ${PROJECT_SOURCE_DIR}/src/to_str.c
+
+    # Headers
+    ${PROJECT_HEADERS}
+)
+
 target_compile_features(
     noc PRIVATE c_std_11
 )
@@ -52,3 +56,9 @@ target_compile_features(
 target_include_directories(
     noc PRIVATE ${PROJECT_SOURCE_DIR}/include
 )
+
+set_target_properties(noc PROPERTIES
+	PUBLIC_HEADER ${PROJECT_HEADERS}
+)
+
+install(TARGETS noc)

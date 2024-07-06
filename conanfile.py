@@ -2,7 +2,7 @@ from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
 
 
-class DumbLogRecipe(ConanFile):
+class NoStdLibRecipe(ConanFile):
     name = "nostdlib"
     version = "0.0.1"
 
@@ -44,4 +44,4 @@ class DumbLogRecipe(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["nostdlib"]
+        self.cpp_info.libs = ["nostdlib", "noc"]
