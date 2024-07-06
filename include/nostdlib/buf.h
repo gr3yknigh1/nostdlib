@@ -7,22 +7,13 @@
 typedef struct {
     byte *data;
     usize size;
-} noc_buf;
+} noc_buf_t;
 
-NOC_INLINE noc_buf
-noc_buf_init(byte *data, usize size) {
-    return LITERAL(noc_buf){
-        .data = data,
-        .size = size,
-    };
-}
+/*
+ * Initializes empty buffer.
+ * */
+NOC_DEF noc_buf_t noc_buf_init(void);
 
-NOC_INLINE noc_buf
-noc_buf_init_0(void) {
-    return LITERAL(noc_buf){
-        .data = nullptr,
-        .size = 0,
-    };
-}
+NOC_DEF noc_buf_t noc_buf_init_ex(byte *data, usize size);
 
 #endif // NOSTDLIB_BUF_H_

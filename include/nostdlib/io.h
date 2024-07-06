@@ -4,7 +4,6 @@
 #include "nostdlib/buf.h"
 #include "nostdlib/macros.h"
 #include "nostdlib/rc.h"
-#include "nostdlib/string.h"
 #include "nostdlib/types.h"
 
 typedef int filefd;
@@ -15,7 +14,7 @@ extern const filefd stdfd_err;
 
 NOC_NODISCARD NOC_DEF noc_rc noc_write(filefd fd, const byte *data, usize count,
                                        usize *written);
-NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(filefd fd, const noc_buf *buf,
+NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(filefd fd, const noc_buf_t *buf,
                                            usize *written);
 NOC_NODISCARD NOC_DEF noc_rc noc_write_cstr(filefd fd, const char *s,
                                             usize *written);
