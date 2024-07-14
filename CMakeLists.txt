@@ -73,6 +73,12 @@ if(NOC_BUILD_TESTS)
         target_link_libraries(
             ${NOC_TEST_NAME}
             PRIVATE nocheck::nocheck
+            PRIVATE noc
+        )
+
+        target_include_directories(
+            ${NOC_TEST_NAME}
+            PRIVATE ${PROJECT_SOURCE_DIR}/include
         )
 
         target_compile_features(${NOC_TEST_NAME} PRIVATE c_std_11)
