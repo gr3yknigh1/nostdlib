@@ -1,4 +1,7 @@
-#ifndef NOSTDLIB_MACROS_H_
+/*
+ * nostdlib's global macros.
+ * */
+#if !defined(NOSTDLIB_MACROS_H_)
 #define NOSTDLIB_MACROS_H_
 
 #if !defined(NULL)

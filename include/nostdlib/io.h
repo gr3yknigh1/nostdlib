@@ -15,7 +15,7 @@ extern const NOC_FileDescriptor StdErr;
 NOC_NODISCARD NOC_DEF noc_rc noc_write(NOC_FileDescriptor fd, const byte *data,
                                        usize count, usize *written);
 NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(NOC_FileDescriptor fd,
-                                           const noc_buf_t *buf,
+                                           const NOC_Buffer *buf,
                                            usize *written);
 NOC_NODISCARD NOC_DEF noc_rc noc_write_cstr(NOC_FileDescriptor fd,
                                             const char *s, usize *written);

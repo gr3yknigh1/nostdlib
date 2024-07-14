@@ -1,4 +1,7 @@
-#ifndef NOSTDLIB_CHAR_H_
+/*
+ * nostdlib's charlib.
+ * */
+#if !defined(NOSTDLIB_CHAR_H_)
 #define NOSTDLIB_CHAR_H_
 
 #include "nostdlib/macros.h"
