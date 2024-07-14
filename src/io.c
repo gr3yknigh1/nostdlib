@@ -7,13 +7,13 @@
 #include <unistd.h>
 
 #include "nostdlib/sys/posix.h"
-const filefd stdfd_in = NOC_POSIX_FD_STDIN;
-const filefd stdfd_out = NOC_POSIX_FD_STDOUT;
-const filefd stdfd_err = NOC_POSIX_FD_STDERR;
+const FileDescriptor StdIn = NOC_POSIX_FD_STDIN;
+const FileDescriptor StdOut = NOC_POSIX_FD_STDOUT;
+const FileDescriptor StdErr = NOC_POSIX_FD_STDERR;
 #endif
 
 NOC_NODISCARD NOC_DEF noc_rc
-noc_write(filefd fd, const byte *data, usize count, usize *written) {
+noc_write(FileDescriptor fd, const byte *data, usize count, usize *written) {
 #ifdef NOC_PLATFORM_LINUX
     ssize ret = write(fd, data, count);
 
@@ -30,30 +30,30 @@ noc_write(filefd fd, const byte *data, usize count, usize *written) {
 }
 
 NOC_NODISCARD NOC_DEF noc_rc
-noc_write_buf(filefd fd, const noc_buf_t *buf, usize *written) {
+noc_write_buf(FileDescriptor fd, const noc_buf_t *buf, usize *written) {
     return noc_write(fd, buf->data, buf->size, written);
 }
 
 NOC_NODISCARD NOC_DEF noc_rc
-noc_write_cstr(filefd fd, const char *s, usize *written) {
+noc_write_cstr(FileDescriptor fd, const char *s, usize *written) {
     return noc_write(fd, (const byte *)s, noc_string_len(s), written);
 }
 
 NOC_NODISCARD NOC_DEF noc_rc
-noc_write_char(filefd fd, char c) {
+noc_write_char(FileDescriptor fd, char c) {
     return noc_write(fd, (const byte *)&c, 1, nullptr);
 }
 
 NOC_NODISCARD NOC_DEF noc_rc
 noc_print(const char *s) {
-    return noc_write(stdfd_out, (const byte *)s, noc_string_len(s), nullptr);
+    return noc_write(StdOut, (const byte *)s, noc_string_len(s), nullptr);
 }
 
 NOC_DEF noc_rc
 noc_printchar(char c) {
-    noc_rc ret = noc_write_char(stdfd_out, c);
+    noc_rc ret = noc_write_char(StdOut, c);
     if (ret == RC_OK) {
-        return noc_write_char(stdfd_out, '\n');
+        return noc_write_char(StdOut, '\n');
     }
     return ret;
 }
@@ -61,9 +61,9 @@ noc_printchar(char c) {
 NOC_DEF noc_rc
 noc_println(const char *s) {
     noc_rc ret =
-        noc_write(stdfd_out, (const byte *)s, noc_string_len(s), nullptr);
+        noc_write(StdOut, (const byte *)s, noc_string_len(s), nullptr);
     if (ret == RC_OK) {
-        return noc_write_char(stdfd_out, '\n');
+        return noc_write_char(StdOut, '\n');
     }
     return ret;
 }

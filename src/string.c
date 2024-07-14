@@ -129,7 +129,7 @@ noc_string_insert(const char8 *dst, const char8 *src, usize at) {
     }
 
     usize insert_index = at;
-    noc_memory_copy(res, (char *)dst, dst_len + 1);
+    NOC_MemoryCopy(res, (char *)dst, dst_len + 1);
 
     for (usize i = 0; i < src_len; ++i, ++insert_index) {
         insert_and_shift(res, src, insert_index, i);

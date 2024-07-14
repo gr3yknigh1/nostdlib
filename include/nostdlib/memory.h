@@ -13,14 +13,43 @@
 #define NOC_ALIGN_TO(X, ALIGNMENT)                                             \
     (((X) + ((ALIGNMENT) - 1)) & ~((ALIGNMENT) - 1))
 
-NOC_DEF void noc_memory_zero(void *dst, usize size);
+/*
+ * @breaf Sets buffer to zero.
+ * @param buffer Buffer to make zero.
+ * @param size Size of buffer.
+ * */
+NOC_DEF void NOC_MemoryZero(void *buffer, usize size);
 
-NOC_DEF void noc_memory_set(void *dst, usize size, i8 value);
+/*
+ * @breaf Sets buffer to specified value.
+ * @param buffer Buffer to set value.
+ * @param size Size of buffer.
+ * @param value Value to set.
+ * */
+NOC_DEF void NOC_MemorySet(void *buffer, usize size, i8 value);
 
-NOC_DEF void noc_memory_copy(void *restrict dst, const void *src, usize size);
+/*
+ * @breaf Copyies from one buffer to another.
+ * @param destination Buffer in which will be copied source buffer.
+ * @param source Buffer from which will be copy values.
+ * @param size Size of source buffer.
+ * */
+NOC_DEF void NOC_MemoryCopy(void *restrict destination, const void *source, usize size);
 
-NOC_DEF const void *noc_memory_find(const void *p, usize size, i8 value);
+/*
+ * @breaf Finds and returns a pointer to first byte with specified value in
+ * buffer.
+ * @param buffer Buffer in which it should search value.
+ * @param size Size of buffer.
+ * @param value Value which should be find.
+ * */
+NOC_DEF const void *NOC_MemoryFind(const void *buffer, usize size, i8 value);
 
+/*
+ * @breaf Aligns specified size to page size of platform.
+ * @param size Size which should be aligned.
+ * @returns Aligned to page size value.
+ * */
 NOC_DEF usize NOC_AlignToPageSize(usize size);
 
 /*

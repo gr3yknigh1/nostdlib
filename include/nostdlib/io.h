@@ -6,19 +6,20 @@
 #include "nostdlib/rc.h"
 #include "nostdlib/types.h"
 
-typedef int filefd;
+typedef int NOC_FileDescriptor;
 
-extern const filefd stdfd_in;
-extern const filefd stdfd_out;
-extern const filefd stdfd_err;
+extern const NOC_FileDescriptor StdIn;
+extern const NOC_FileDescriptor StdOut;
+extern const NOC_FileDescriptor StdErr;
 
-NOC_NODISCARD NOC_DEF noc_rc noc_write(filefd fd, const byte *data, usize count,
-                                       usize *written);
-NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(filefd fd, const noc_buf_t *buf,
+NOC_NODISCARD NOC_DEF noc_rc noc_write(NOC_FileDescriptor fd, const byte *data,
+                                       usize count, usize *written);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_buf(NOC_FileDescriptor fd,
+                                           const noc_buf_t *buf,
                                            usize *written);
-NOC_NODISCARD NOC_DEF noc_rc noc_write_cstr(filefd fd, const char *s,
-                                            usize *written);
-NOC_NODISCARD NOC_DEF noc_rc noc_write_char(filefd fd, char c);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_cstr(NOC_FileDescriptor fd,
+                                            const char *s, usize *written);
+NOC_NODISCARD NOC_DEF noc_rc noc_write_char(NOC_FileDescriptor fd, char c);
 
 NOC_DEF noc_rc noc_println(const char *s);
 NOC_DEF noc_rc noc_printchar(char c);

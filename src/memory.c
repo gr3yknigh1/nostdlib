@@ -14,31 +14,31 @@
 #endif
 
 NOC_DEF void
-noc_memory_zero(void *dst, usize size) {
+NOC_MemoryZero(void *buffer, usize size) {
     while (size-- > 0) {
-        ((char *)dst)[size] = 0;
+        ((char *)buffer)[size] = 0;
     }
 }
 
 NOC_DEF void
-noc_memory_set(void *dst, usize size, i8 c) {
+NOC_MemorySet(void *buffer, usize size, i8 value) {
     while (size-- > 0) {
-        ((char *)dst)[size] = c;
+        ((char *)buffer)[size] = value;
     }
 }
 
 NOC_DEF void
-noc_memory_copy(void *restrict dst, const void *src, usize size) {
+NOC_MemoryCopy(void *restrict destination, const void *source, usize size) {
     for (usize i = 0; i < size; ++i) {
-        ((char *)dst)[i] = ((char *)src)[i];
+        ((byte *)destination)[i] = ((byte *)source)[i];
     }
 }
 
 NOC_DEF const void *
-noc_memory_find(const void *p, usize size, i8 value) {
+NOC_MemoryFind(const void *buffer, usize size, i8 value) {
     for (usize i = 0; i < size; ++i) {
-        if (((i8 *)p)[i] == value) {
-            return p;
+        if (((i8 *)buffer)[i] == value) {
+            return buffer;
         }
     }
     return nullptr;

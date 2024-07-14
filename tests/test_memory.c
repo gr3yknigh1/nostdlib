@@ -42,7 +42,7 @@ TEST(ArenaAlloc_0_SimpleAndCheckReadWrite) {
     byte *buffer = NOC_ArenaAlloc(&arena, bufferSize);
     ASSERT_NOT_NULL(buffer);
 
-    noc_memory_set(buffer, bufferSize, bufferElementValue);
+    NOC_MemorySet(buffer, bufferSize, bufferElementValue);
 
     for (usize i = 0; i < bufferSize; ++i) {
         ASSERT_EQ(buffer[i], bufferElementValue);
