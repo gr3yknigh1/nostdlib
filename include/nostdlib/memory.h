@@ -8,6 +8,11 @@
 #define MEGABYTES(X) (1024 * 1024 * (X))
 #define GIGABYTES(X) (1024 * 1024 * 1024 * (X))
 
+// NOTE(gr3yknigh1): Source https://stackoverflow.com/a/45213645/12456897
+// [2024/07/14]
+#define NOC_ALIGN_TO(X, ALIGNMENT)                                             \
+    (((X) + ((ALIGNMENT) - 1)) & ~((ALIGNMENT) - 1))
+
 NOC_DEF void noc_memory_zero(void *dst, usize size);
 
 NOC_DEF void noc_memory_set(void *dst, usize size, i8 value);
