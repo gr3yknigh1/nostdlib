@@ -35,7 +35,7 @@ _fmt_context_parse(struct _fmt_context *ctx) {
         _fmt_context_advance(ctx);
     }
 
-    if (noc_is_digit(ctx->curchar)) {
+    if (NOC_IsDigit(ctx->curchar)) {
         _fmt_context_advance_for(ctx, _fmt_parse_i32_while_digit(
                                           *ctx->format_read_ptr,
                                           (i32 *)(&ctx->justification_value)));

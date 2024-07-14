@@ -141,7 +141,7 @@ noc_string_insert(const char8 *dst, const char8 *src, usize at) {
 NOC_DEF void
 noc_string_to_upper(char8 *s) {
     while (*s++ != '\0') {
-        if (noc_is_lower(*s)) {
+        if (NOC_IsLower(*s)) {
             *s += 'A' - 'a';
         }
     }
@@ -150,7 +150,7 @@ noc_string_to_upper(char8 *s) {
 NOC_DEF void
 noc_string_to_lower(char8 *s) {
     while (*s++ != '\0') {
-        if (noc_is_upper(*s)) {
+        if (NOC_IsUpper(*s)) {
             *s -= 'A' - 'a';
         }
     }

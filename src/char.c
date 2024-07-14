@@ -2,22 +2,21 @@
 #include "nostdlib/macros.h"
 
 NOC_NODISCARD NOC_DEF bool
-noc_is_digit(char c) {
+NOC_IsDigit(char c) {
     return INRANGE('0', c, '9');
 }
 
 NOC_NODISCARD NOC_DEF bool
-noc_is_alphabet(char c) {
+NOC_IsAlphabet(char c) {
     return INRANGE('a', c, 'Z');
 }
 
 NOC_NODISCARD NOC_DEF bool
-noc_is_upper(char c) {
+NOC_IsUpper(char c) {
     return INRANGE('A', c, 'Z');
 }
 
 NOC_NODISCARD NOC_DEF bool
-noc_is_lower(char c) {
+NOC_IsLower(char c) {
     return INRANGE('a', c, 'z');
 }
-

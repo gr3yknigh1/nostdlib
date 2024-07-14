@@ -52,7 +52,7 @@ _fmt_handle_sign_precede(struct _fmt_context *ctx, char *buffer,
 u32
 _fmt_count_while_digit(const char *s) {
     u32 count = 0;
-    while (noc_is_digit(*s)) {
+    while (NOC_IsDigit(*s)) {
         ++count;
         ++s;
     }
