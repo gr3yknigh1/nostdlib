@@ -37,7 +37,8 @@ typedef struct {
 
 /*
  * @breaf Initializes memory arena. Maps memory for you.
- * @param size Amount of bytes to allocate.
+ * @param size Minimum amount of bytes to allocate. Size will be aligned with
+ * platform's page size.
  * */
 NOC_DEF NOC_Arena NOC_ArenaMake(usize size);
 
@@ -49,7 +50,7 @@ NOC_DEF NOC_Arena NOC_ArenaMake(usize size);
 NOC_DEF void *NOC_ArenaAlloc(NOC_Arena *arena, usize size);
 
 /*
- * @breaf Unmaps pages, which was allocated for you.
+ * @breaf Unmaps pages, which was allolcated for you.
  * @param arena Your arena.
  * */
 NOC_DEF void NOC_ArenaFree(NOC_Arena *arena);
