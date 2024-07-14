@@ -2,7 +2,7 @@
 #define NOSTDLIB_PLATFORM_H_
 
 #if defined(_WIN32)
-#error "Windows doesn't supported"
+#define NOC_PLATFORM_WINDOWS
 #elif defined(__APPLE__) || defined(__MACH__)
 #error "Premium devices isn't supported"
 #elif defined(__ANDROID__)

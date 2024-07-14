@@ -20,6 +20,7 @@ add_library(noc
     ${NOC_SOURCES_DIR}/fmt/parser.c
     ${NOC_SOURCES_DIR}/string.c
     ${NOC_SOURCES_DIR}/to_str.c
+    ${NOC_SOURCES_DIR}/sys.c
 
     # ${NOC_SOURCES_DIR}/fmt/sscanf.c
 
@@ -46,6 +47,7 @@ add_library(noc
     ${NOC_INCLUDE_DIR}/nostdlib/math/mod.h
     ${NOC_INCLUDE_DIR}/nostdlib/io.h
     ${NOC_INCLUDE_DIR}/nostdlib/buf.h
+    ${NOC_INCLUDE_DIR}/nostdlib/sys.h
 )
 
 target_compile_features(
