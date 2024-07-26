@@ -34,7 +34,8 @@ NOC_DEF void NOC_MemorySet(void *buffer, usize size, i8 value);
  * @param source Buffer from which will be copy values.
  * @param size Size of source buffer.
  * */
-NOC_DEF void NOC_MemoryCopy(void *restrict destination, const void *source, usize size);
+NOC_DEF void NOC_MemoryCopy(void *restrict destination, const void *source,
+                            usize size);
 
 /*
  * @breaf Finds and returns a pointer to first byte with specified value in
@@ -84,8 +85,7 @@ NOC_DEF void *NOC_ArenaAlloc(NOC_Arena *arena, usize size);
  * */
 NOC_DEF void NOC_ArenaFree(NOC_Arena *arena);
 
-typedef struct
-{
+typedef struct {
     void *Data;
     usize Capacity;
     usize Occupied;
