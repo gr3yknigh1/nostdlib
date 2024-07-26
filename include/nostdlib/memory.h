@@ -84,4 +84,15 @@ NOC_DEF void *NOC_ArenaAlloc(NOC_Arena *arena, usize size);
  * */
 NOC_DEF void NOC_ArenaFree(NOC_Arena *arena);
 
+typedef struct
+{
+    void *Data;
+    usize Capacity;
+    usize Occupied;
+} NOC_ScratchArena;
+
+NOC_DEF NOC_ScratchArena NOC_ScratchArenaMake(NOC_Arena *arena, usize size);
+NOC_DEF NOC_ScratchArena NOC_ScratchArenaMakeZero(NOC_Arena *arena, usize size);
+NOC_DEF void NOC_ScratchArenaClear(NOC_ScratchArena *scratchArena);
+
 #endif // NOSTDLIB_MEMORY_H_

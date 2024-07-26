@@ -101,3 +101,31 @@ NOC_ArenaFree(NOC_Arena *arena) {
     arena->Capacity = 0;
     arena->Occupied = 0;
 }
+
+NOC_DEF NOC_ScratchArena
+NOC_ScratchArenaMake(NOC_Arena *arena, usize size) {
+    // TODO(gr3yknigh1): Assert `arena` be `NULL` and `size` be zero.
+
+    void *data = NOC_ArenaAlloc(arena, size);
+
+    NOC_ScratchArena ret = LITERAL(NOC_ScratchArena){
+        .Data = data,
+        .Capacity = size,
+        .Occupied = 0,
+    };
+
+    return ret;
+}
+
+NOC_DEF NOC_ScratchArena
+NOC_ScratchArenaMakeZero(NOC_Arena *arena, usize size) {
+    NOC_ScratchArena scratch = NOC_ScratchArenaMake(arena, size);
+    NOC_MemoryZero(scratch.Data, scratch.Capacity);
+    return scratch;
+}
+
+NOC_DEF void
+NOC_ScratchArenaClear(NOC_ScratchArena *scratchArena) {
+    // TODO(gr3yknigh1): Assert `arena` be `NULL`.
+    scratchArena->Occupied = 0;
+}
